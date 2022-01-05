@@ -24,6 +24,15 @@
     $password = stripslashes($_REQUEST['password']);
     $password = mysqli_real_escape_string($conn, $password);
     //requéte SQL + mot de passe crypté
+    $select = mysqli_query($conn, "SELECT * FROM users WHERE username = '" . $_POST['username'] . "'");
+    if (mysqli_num_rows($select)) {
+      exit('This username already exists');
+    }
+    $select = mysqli_query($conn, "SELECT * FROM users WHERE email = '" . $_POST['email'] . "'");
+    if (mysqli_num_rows($select)) {
+      exit('This email is already used');
+    }
+
     $query = "INSERT into `users` (username, email, password)
               VALUES ('$username', '$email', '" . hash('sha256', $password) . "')";
     // Exécuter la requête sur la base de données
