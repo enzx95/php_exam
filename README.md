@@ -8,7 +8,7 @@ Vous allez devoir réaliser un site web sous forme d'un Forum, il devra comporte
     
 ~~→ 🚨 Un utilisateur doit avoir une adresse mail et un username unique 😉~~
     
-- Une page `Home` qui va recenser tous les articles postés avec le plus récent en premier
+~~- Une page `Home` qui va recenser tous les articles postés avec le plus récent en premier~~
 - Une page `New` qui permet de rédiger un nouvel article
 - Une page `Details` pour afficher les détails de l'article passé en paramètres
 - Une page `Edit` lié à un article, permet d'éditer un article
@@ -23,6 +23,6 @@ Vous allez devoir réaliser un site web sous forme d'un Forum, il devra comporte
 
 
 
-> Un utilisateur ne peux acceder à aucune page sans être connecté à un compte. Toutes les autres pages doivent le rediriger vers la page connexion
+> ~~Un utilisateur ne peux acceder à aucune page sans être connecté à un compte. Toutes les autres pages doivent le rediriger vers la page connexion~~
 > 
 
