@@ -12,8 +12,8 @@ Vous allez devoir réaliser un site web sous forme d'un Forum, il devra comporte
 - Une page `New` qui permet de rédiger un nouvel article
 - Une page `Details` pour afficher les détails de l'article passé en paramètres
 - Une page `Edit` lié à un article, permet d'éditer un article
-- Une page `Account` pour afficher les informations du compte ainsi que tous les articles postés par ce compte, l'utilisateur doit être capable de modifier ses propres informations comme son adresse mail ou son mot de passe
-- Une page `Connexion Admin` et `Panel Admin`,  où cet administrateur peut modifier ou supprimer n'importe quel Article et/ou Utilisateur
+~~- Une page `Account` pour afficher les informations du compte ainsi que tous les articles postés par ce compte, l'utilisateur doit être capable de modifier ses propres informations comme son adresse mail ou son mot de passe~~
+~~- Une page `Connexion Admin` et `Panel Admin`,  où cet administrateur peut modifier ou supprimer n'importe quel Article et/ou Utilisateur~~
 
 > Une fois un article rédigé, l'utilisateur doit être capable de le supprimer ou de l'éditer
 > 

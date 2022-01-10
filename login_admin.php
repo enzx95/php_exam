@@ -9,8 +9,11 @@
     <?php
     require('config.php');
     session_start();
-    if (isset($_SESSION["username"])) {
+    if (!isset($_SESSION["username"])) {
         header("Location: index.php");
+        exit();
+    }elseif($_SESSION['admin']==true){
+        header("Location: panel_admin.php");
         exit();
     }
 
@@ -28,7 +31,8 @@
             $rows = mysqli_num_rows($result);
             if ($rows == 1) {
                 $_SESSION['username'] = $username;
-                header("Location: index.php");
+                $_SESSION['admin'] = true;
+                header("Location: panel_admin.php");
             } else {
                 $message = "Vous n'étes pas administrateur.";
             }

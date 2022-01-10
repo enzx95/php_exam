@@ -26,7 +26,7 @@ if (!isset($_SESSION["username"])) {
 <body>
 	<div class="sucess">
 		<h1>Bienvenue <?php echo $_SESSION['username']; ?>!</h1>
-		<p>C'est votre tableau de bord.</p>
+		<p>Voici les derniers articles.</p>
 
 
 		<table>
@@ -58,6 +58,7 @@ if (!isset($_SESSION["username"])) {
 		<br>
 		<a href="account.php">Mon compte</a>
 		<a href="logout.php">Déconnexion</a>
+		<a href="login_admin.php">Admin</a>
 	</div>
 </body>
 

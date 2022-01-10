@@ -92,9 +92,46 @@
         <?php } ?>
     </form>
     <br>
+    <h1 class="box-title">Vos articles</h1>
+    <table>
+        <tr>
+            <th>Titre</th>
+            <th>Article</th>
+        </tr>
+        <?php
+        // SQL query
+        $strSQL = " SELECT title, description  FROM articles INNER JOIN users WHERE articles.author = users.ID AND users.username='$username'";
+
+        // Execute the query (the recordset $rs contains the result)
+        $rs = mysqli_query($conn, $strSQL);
+
+        // Loop the recordset $rs
+        // Each row will be made into an array ($row) using mysqli_fetch_array
+        while ($row = mysqli_fetch_array($rs)) {
+
+            // Write the value of the column FirstName (which is now in the array $row)
+            // echo "<h3>" . $row['title'] . "</h3></b>";
+            // echo "<h4>" . $row['description'] . "</h4></b>";
+            echo "<tr>
+				<td>" . $row['title'] . "</td>
+				<td>" . $row['description'] . "</td>
+			</tr>";
+        }
+        ?>
+    </table>
+    <br>
 
     <a href="index.php">Accueil</a>
     <a href="logout.php">Déconnexion</a>
+    <a href="login_admin.php">Admin</a>
 </body>
+<style>
+    table,
+    th,
+    td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+</style>
 
 </html>
