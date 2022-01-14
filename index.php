@@ -45,11 +45,8 @@ if (!isset($_SESSION["username"])) {
 			// Each row will be made into an array ($row) using mysqli_fetch_array
 			while ($row = mysqli_fetch_array($rs)) {
 
-				// Write the value of the column FirstName (which is now in the array $row)
-				// echo "<h3>" . $row['title'] . "</h3></b>";
-				// echo "<h4>" . $row['description'] . "</h4></b>";
 				echo "<tr>
-				<td>" . $row['title'] . "</td>
+				<td><a href=\"details.php?ID=".$row['ID']."\">".$row['title']."</a></td>
 				<td>" . $row['description'] . "</td>
 			</tr>";
 			}
