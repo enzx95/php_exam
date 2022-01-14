@@ -56,6 +56,7 @@ if (!isset($_SESSION["username"])) {
 			?>
 		</table>
 		<br>
+		<a href="new.php">Créer un article</a>
 		<a href="account.php">Mon compte</a>
 		<a href="logout.php">Déconnexion</a>
 		<a href="login_admin.php">Admin</a>
