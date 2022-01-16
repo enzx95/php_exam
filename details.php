@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html>
 
-
 <body>
     <?php
+    session_start();
+    if (!isset($_SESSION["username"])) {
+        header("Location: index.php");
+        exit();
+    }
     require('config.php');
     if (is_string($_GET['ID']) && preg_match('#^[0-9]+$#', $_GET['ID'])) {
         //echo 'Bonjour ' . htmlspecialchars($_GET["ID"]) . '!';
@@ -17,7 +21,13 @@
                 echo "<b>Titre : </b>" . $row['title'] . "<br />";
                 echo "<b>Article : </b>" . $row['description'] . "<br {/>";
                 echo "<b>Date : </b>" . $row['date'] . "<br {/>";
-                echo "<b>Autheur : </b>" . $row['username'] . "<br {/>";
+                echo "<b>Auteur : </b>" . $row['username'] . "<br {/>";
+                    //echo $row['ID'];
+                    if($row['ID'] == $_SESSION["ID"]){
+                        echo "<br><a href=\"edit.php?ID=$ID\">Modifier</a>
+                        <br>";
+                    }
+                    
             }
         } else {
             echo "L'ID est incorrect.";
@@ -30,6 +40,7 @@
     <br>
 
     <a href="index.php">Accueil</a>
+    <a href="new.php">Créer un article</a>
     <a href="account.php">Mon compte</a>
     <a href="logout.php">Déconnexion</a>
     <a href="login_admin.php">Admin</a>
