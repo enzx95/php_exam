@@ -1,12 +1,8 @@
 <!DOCTYPE html>
 <html>
 
-
 <head>
-	<title>Slide Navbar</title>
-	<link rel="stylesheet" type="text/css" href="Style3.css">
-    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
-<body>
+    <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
@@ -34,32 +30,29 @@
         }
     }
     ?>
+    <form class="box" action="" method="post" name="login">
+        <h1 class="box-title">Connexion</h1>
+        <input type="text" class="box-input" name="username" placeholder="Nom d'utilisateur">
+        <input type="password" class="box-input" name="password" placeholder="Mot de passe">
+        <input type="submit" value="Connexion " name="submit" class="box-button">
+        <p class="box-register">Vous êtes nouveau ici? <a href="register.php">S'inscrire</a></p>
+        <?php if (!empty($message)) { ?>
+            <p class="errorMessage"><?php echo $message; ?></p>
+        <?php } ?>
+
+
+<!--   Mise en place balise Form + Action  -->
+    <form class="box" action="index.html" methode="post">
+<!--   Mise en place du SVG "user"     -->
+      <svg width="30" height="30" viewBox="0 0 24 24">
+  <path d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z"></path>
+</svg>
 
 
 
 
 
-	<div class="main">  	
-		<input type="checkbox" id="chk" aria-hidden="true">
-
-			<div class="signup">
-				<form>
-					<label for="chk" aria-hidden="true">Sign up</label>
-					<input type="text" name="txt" placeholder="User name" required="">
-					<input type="email" name="email" placeholder="Email" required="">
-					<input type="password" name="pswd" placeholder="Password" required="">
-					<button>Sign up</button>
-				</form>
-			</div>
-
-			<div class="login">
-				<form>
-					<label for="chk" aria-hidden="true">Login</label>
-					<input type="email" name="email" placeholder="Email" required="">
-					<input type="password" name="pswd" placeholder="Password" required="">
-					<button>Login</button>
-				</form>
-			</div>
-	</div>
+    </form>
 </body>
+
 </html>
