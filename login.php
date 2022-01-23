@@ -24,8 +24,6 @@
         $rows = mysqli_num_rows($result);
         if ($rows == 1) {
             $_SESSION['username'] = $username;
-            $rows=mysqli_fetch_array($result);
-            $_SESSION['ID'] =  $rows[0];
             header("Location: index.php");
         } else {
            $message = "Le nom d'utilisateur ou le mot de passe est incorrect.";
