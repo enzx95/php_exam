@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <link rel="stylesheet" href="details.css" />
+</head>
 
 <body>
     <?php
@@ -9,6 +12,7 @@
         exit();
     }
     require('config.php');
+    require ('navigation.html');
     if (is_string($_GET['ID']) && preg_match('#^[0-9]+$#', $_GET['ID'])) {
         //echo 'Bonjour ' . htmlspecialchars($_GET["ID"]) . '!';
         $ID = htmlspecialchars($_GET["ID"]);
@@ -18,10 +22,10 @@
         if ($rows == 1) {
             while ($row = mysqli_fetch_array($result)) {
                 // Write the value of the column FirstName (which is now in the array $row)
-                echo "<b>Titre : </b>" . $row['title'] . "<br />";
-                echo "<b>Article : </b>" . $row['description'] . "<br {/>";
-                echo "<b>Date : </b>" . $row['date'] . "<br {/>";
-                echo "<b>Auteur : </b>" . $row['username'] . "<br {/>";
+                echo "<div class=\"title\">" . $row['title'] . "</div>";
+                echo "<div class=\"article\">" . $row['description'] . "</div>";
+                echo "<div class=\"intro\">" . $row['date'] . "</div>";
+                echo "<div class=\"article\">" . $row['username'] . "</div>";
                     //echo $row['ID'];
                     if($row['ID'] == $_SESSION["ID"]){
                         echo "<br><a href=\"edit.php?ID=$ID\">Modifier</a>
@@ -38,21 +42,5 @@
     ?>
 
     <br>
-
-    <a href="index.php">Accueil</a>
-    <a href="new.php">Créer un article</a>
-    <a href="account.php">Mon compte</a>
-    <a href="logout.php">Déconnexion</a>
-    <a href="login_admin.php">Admin</a>
-
-</body>
-<style>
-    table,
-    th,
-    td {
-        border: 1px solid black;
-        border-collapse: collapse;
-    }
-</style>
 
 </html>

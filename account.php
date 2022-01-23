@@ -5,6 +5,7 @@
 <body>
     <?php
     require('config.php');
+    require ('navigation.html');
     session_start();
     if (!isset($_SESSION["username"])) {
         header("Location: index.php");
@@ -121,10 +122,6 @@
     </table>
     <br>
 
-    <a href="index.php">Accueil</a>
-    <a href="new.php">Créer un article</a>
-    <a href="logout.php">Déconnexion</a>
-    <a href="login_admin.php">Admin</a>
 </body>
 <style>
     table,

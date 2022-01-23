@@ -1,0 +1,11 @@
+html {
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    background-color: #f2f2f2;
+  }
+
+  .title {
+    margin: 0 0 0.5rem 0;
+    color: #999;
+    font-size: 1.25rem;
+  }

@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <link rel="stylesheet" href="new.css" />
+</head>
 
 
 <body>
     <?php
     require('config.php');
+    require ('navigation.html');
     session_start();
     if (!isset($_SESSION["username"])) {
         header("Location: index.php");
@@ -33,24 +37,42 @@
     }
     ?>
 
-    <br>
-    <form class="box" action="" method="post" name="login">
-        <h1 class="box-title">Créer un article</h1>
-        Titre: <input type="text" name="title" value="">
-        <br><br>
-        Article: <textarea name="article" rows="5" cols="40"></textarea>
-        <br><br>
-        <?php if (!empty($message)) { ?>
-            <p class="errorMessage"><?php echo $message; ?></p>
-        <?php } ?>
-        <input type="submit" name="submit" value="Créer">
-        <br><br>
-    </form>
+    <div class="container-contact100">
 
-    <a href="index.php">Accueil</a>
-    <a href="account.php">Mon compte</a>
-    <a href="logout.php">Déconnexion</a>
-    <a href="login_admin.php">Admin</a>
+		<div class="wrap-contact100">
+            <form class="box" action="" method="post" name="login">
+				<span class="contact100-form-title">
+					Créer votre article
+				</span>
+
+				<div class="wrap-input100 validate-input">
+					<input class="input100" type="text" name="title" value="" placeholder="Titre">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" >
+					<textarea class="input100" name="article" placeholder="Description"></textarea>
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="container-contact100-form-btn">
+					<button class="contact100-form-btn">
+						<span>
+                        <?php if (!empty($message)) { ?>
+                            <p class="errorMessage"><?php echo $message; ?></p>
+                        <?php } ?>
+						<i class="fa fa-paper-plane-o m-r-6" aria-hidden="true" type="submit" name="submit" value="Créer"></i>
+							Créer
+						</span>
+					</button>
+				</div>
+			</form>
+		</div>
+	</div>
+
+
+
+	<div id="dropDownSelect1"></div>
 
 </body>
 <style>

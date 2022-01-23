@@ -1,5 +1,6 @@
 <?php
 require('config.php');
+require ('navigation.html');
 session_start();
 if ($_SESSION['admin'] == true) {
 } else {
@@ -111,11 +112,6 @@ if (isset($_POST['id'])) {
     ?>
 </table>
 <br>
-<a href="index.php">Accueil</a>
-<a href="new.php">Créer un article</a>
-<a href="account.php">Mon compte</a>
-<a href="logout.php">Déconnexion</a>
-
 <style>
     table,
     th,

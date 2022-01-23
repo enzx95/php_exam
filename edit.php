@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <link rel="stylesheet" href="new.css" />
+</head>
 
 <body>
     <?php
@@ -8,13 +11,14 @@
         header("Location: index.php");
         exit();
     }
-
+    
     require('config.php');
+    require ('navigation.html');
 
     $author = $_SESSION["ID"];
     //echo $author;
     //echo $_SESSION["username"];
-    if (isset($_POST['nvTitre'])) {
+    if (!empty($_POST['nvTitre'])) {
        // echo "salit";
         $nvTitre = stripslashes($_REQUEST['nvTitre']);
         $nvTitre = mysqli_real_escape_string($conn, $nvTitre);
@@ -22,7 +26,8 @@
         $result = mysqli_query($conn, $query) or die(mysqli_error($conn, $query));
         $message = "<b>Titre modifié avec succès.</b><br>";
         //echo "submit";
-    } elseif (isset($_POST['article'])) {
+    } elseif (!empty($_POST['article'])) {
+        
         //echo "mail";
         $article = stripslashes($_REQUEST['article']);
         $article = mysqli_real_escape_string($conn, $article);
@@ -45,25 +50,7 @@
                     echo "Vous ne pouvez pas faire cela.";
                 } else {
     ?>
-                    <form class="box" action="" method="post" name="titre">
-                        <p>Modifier le titre</p>
-                        <input type="text" class="box-input" name="nvTitre" placeholder="Nouveau titre">
-                        <input type="submit" value="Modifier " name="submit" class="box-button">
-                        <?php if (!empty($message)) { ?>
-                            <p class="errorMessage"><?php echo $message; ?></p>
-                        <?php } ?>
-                    </form>
-
-                    <form class="box" action="" method="post" name="article">
-                        <p>Modifier l'article</p>
-                        <textarea name="article" rows="5" cols="40"></textarea>
-                        <br>
-                        <input type="submit" value="Modifier " name="submit" class="box-button">
-                        <?php if (!empty($message2)) { ?>
-                            <p class="errorMessage"><?php echo $message2; ?></p>
-                        <?php } ?>
-                    </form>
-                    <br>
+                    
     <?php
                     echo "<b>Titre : </b>" . $row['title'] . "<br />";
                     echo "<b>Article : </b>" . $row['description'] . "<br {/>";
@@ -78,11 +65,53 @@
 
     <br>
 
-    <a href="index.php">Accueil</a>
-    <a href="new.php">Créer un article</a>
-    <a href="account.php">Mon compte</a>
-    <a href="logout.php">Déconnexion</a>
-    <a href="login_admin.php">Admin</a>
+    <div class="container-contact100">
+
+		<div class="wrap-contact100">
+            <form class="box" action="" method="post" name="modif">
+				<span class="contact100-form-title">
+					Modifier votre article
+				</span>
+
+				<div class="wrap-input100 validate-input">
+					<input class="input100" type="text" class="box-input" name="nvTitre" placeholder="Nouveau titre">
+                    <div class="container-contact100-form-btn">
+					    <button class="contact100-form-btn">
+						    <span>
+						    <i class="fa fa-paper-plane-o m-r-6" aria-hidden="true" type="submit" name="submit" value="modifier"></i>
+							Modifier
+						    </span>
+					    </button>
+				    </div>
+                    <?php if (!empty($message)) { ?>
+                        <p class="errorMessage"><?php echo $message; ?></p>
+                    <?php } ?>
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" >
+					<textarea class="input100" name="article" placeholder="Modifier votre texte"></textarea>
+                    <div class="container-contact100-form-btn">
+					    <button class="contact100-form-btn">
+						    <span>
+						    <i class="fa fa-paper-plane-o m-r-6" aria-hidden="true" type="submit" value="Modifier " name="submit"></i>
+							Modifier
+						    </span>
+					    </button>
+				    </div>
+                    <?php if (!empty($message2)) { ?>
+                        <p class="errorMessage"><?php echo $message2; ?></p>
+                    <?php } ?>
+					<span class="focus-input100"></span>
+				</div>
+
+			</form>
+		</div>
+	</div>
+
+
+
+	
 
 </body>
 

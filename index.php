@@ -1,6 +1,7 @@
 <?php
 // Initialiser la session
 require('config.php');
+require ('navigation.html');
 session_start();
 // Vérifiez si l'utilisateur est connecté, sinon redirigez-le vers la page de connexion
 if (!isset($_SESSION["username"])) {
@@ -10,31 +11,21 @@ if (!isset($_SESSION["username"])) {
 ?>
 <!DOCTYPE html>
 <html>
-<style>
-	table,
-	th,
-	td {
-		border: 1px solid black;
-		border-collapse: collapse;
-	}
-</style>
 
 <head>
 	<link rel="stylesheet" href="style.css" />
+	<link rel="stylesheet" href="post.css" />
+	<link rel="stylesheet" href="navbar.css" />
 </head>
 
 <body>
+
 	<div class="sucess">
 		<h1>Bienvenue <?php echo $_SESSION['username']; ?>!</h1>
 		<p>Voici les derniers articles.</p>
+	</div>
 
-
-		<table>
-			<tr>
-				<th>Titre</th>
-				<th>Article</th>
-			</tr>
-			<?php
+	<?php
 			// SQL query
 			$strSQL = "SELECT * FROM articles ORDER BY date DESC";
 
@@ -45,19 +36,24 @@ if (!isset($_SESSION["username"])) {
 			// Each row will be made into an array ($row) using mysqli_fetch_array
 			while ($row = mysqli_fetch_array($rs)) {
 
-				echo "<tr>
-				<td><a href=\"details.php?ID=".$row['ID']."\">".$row['title']."</a></td>
-				<td>" . $row['description'] . "</td>
-			</tr>";
+
+			echo"<div class=\"wrapper\">
+			<div class=\"blog_post\">
+		  <div class=\"container_copy\">
+			<h3>".$row['date']."</h3>
+			<h1>".$row['title']."</h1>
+			<p>" . $row['description'] . "</p>
+			
+		  </div>
+		  <a class=\"btn_primary\" href=\"details.php?ID=".$row['ID']."\">Read More</a>
+		</div>
+	  </div>";
+	  
+
 			}
-			?>
-		</table>
-		<br>
-		<a href="new.php">Créer un article</a>
-		<a href="account.php">Mon compte</a>
-		<a href="logout.php">Déconnexion</a>
-		<a href="login_admin.php">Admin</a>
-	</div>
+		?>
+	
+
 </body>
 
 </html>
